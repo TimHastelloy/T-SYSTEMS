@@ -1,8 +1,8 @@
 package com.tsystems.javaschool.tasks.subsequence;
 
-import java.util.List;
+import java.util.*;
 
-public class Subsequence {
+public class Subsequence implements ISubsequence{
 
     /**
      * Checks if it is possible to get a sequence which is equal to the first
@@ -15,6 +15,14 @@ public class Subsequence {
     @SuppressWarnings("rawtypes")
     public boolean find(List x, List y) {
         // TODO: Implement the logic here
-        return false;
+        if((x!=null)&&(y!=null))
+        {
+            y.retainAll(x);
+            Set s = new LinkedHashSet(y);
+            Object o[] = s.toArray();
+            List l = Arrays.asList(o);
+            return l.equals(x);
+        }
+        else throw new IllegalArgumentException();
     }
 }
